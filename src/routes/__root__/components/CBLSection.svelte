@@ -1,0 +1,25 @@
+<script lang="ts">
+	// IMPORTED DEP-COMPONENTS
+	import { Tooltip } from 'svelte-ux';
+	// IMPORTED COMPONENTS
+	import { Heading } from '$lib/components';
+</script>
+
+<Heading icon="ph-fill ph-gavel" title="CBL" />
+
+<section class="flex-center rounded-md border border-dashed bg-surface-200 p-4 shadow-sm md:p-6">
+	<div class="flex-start-center w-fit overflow-hidden rounded-sm border bg-surface-100">
+		<small class="overflow-hidden text-ellipsis whitespace-nowrap px-4">ELITES - Constitution and By-Laws (2024-2025).pdf</small>
+
+		<!-- DOWNLOAD -->
+		<Tooltip title="Download">
+			<a
+				class="flex-center aspect-square min-w-10 max-w-10 border-l bg-primary text-white hover:bg-primary/80"
+				href="/pdfs/ELITES - Constitution and By-Laws (2024-2025).pdf"
+				download
+			>
+				<i class="ph-bold ph-download-simple mr-[1px] text-lg"></i>
+			</a>
+		</Tooltip>
+	</div>
+</section>

@@ -5,7 +5,7 @@
 
 <Heading icon="ph-fill ph-lock-laminated" title="Privacy Policy" />
 
-<section class="bg-surface prose max-w-none rounded-md border p-4 shadow-sm md:p-6">
+<section class="bg-surface with-prose max-w-none rounded-md border bg-surface-100 p-4 shadow-sm md:p-6">
 	<strong>Effective Date: October 5, 2024</strong>
 	<p>
 		This Privacy Policy describes how the Exemplary League of Information Technology Students ("ELITES"), located at Bulacan State University - Sarmiento Campus, collects,

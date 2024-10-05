@@ -5,7 +5,7 @@
 
 <Heading icon="ph-fill ph-cookie" title="Cookie Policy" />
 
-<section class="bg-surface prose max-w-none rounded-md border p-4 shadow-sm md:p-6">
+<section class="bg-surface with-prose max-w-none rounded-md border bg-surface-100 p-4 shadow-sm md:p-6">
 	<strong>Effective Date: October 5, 2024</strong>
 	<p>
 		Welcome to the Cookie Policy of the Exemplary League of Information Technology Students ("ELITES"), operating through our website <a

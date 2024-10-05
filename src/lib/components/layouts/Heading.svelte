@@ -9,7 +9,7 @@
 </script>
 
 <div class="flex-start-center gap-3">
-	<div class="flex-center bg-surface-base bg- aspect-square w-10 rounded-md border shadow-sm">
+	<div class="flex-center bg-surface-base bg- aspect-square w-10 rounded-md border bg-surface-100 shadow-sm">
 		<i class={cn('text-2xl', icon)}></i>
 	</div>
 

@@ -1,3 +1,12 @@
+<script lang="ts" context="module">
+	// IMPORTED DEP-MODULES
+	import { writable } from 'svelte/store';
+
+	// -- STORES -- //
+
+	export const headerHeight = writable<number>(0);
+</script>
+
 <script lang="ts">
 	// IMPORTED DEP-COMPONENTS
 	import { Avatar, ThemeSwitch, Tooltip } from 'svelte-ux';
@@ -6,7 +15,7 @@
 	import Brand from './Brand.svelte';
 </script>
 
-<header class="shadow-xs border-b">
+<header class="shadow-xs fixed z-10 w-full min-w-[365px] overflow-x-auto border-b bg-surface-100" bind:clientHeight={$headerHeight}>
 	<div class="container mx-auto flex flex-col gap-2 p-4 pb-2 lg:flex-row lg:pb-4 xl:max-w-[1636px]">
 		<div class="flex-start-center flex-grow gap-4">
 			<Brand />
