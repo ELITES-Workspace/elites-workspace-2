@@ -10,12 +10,12 @@
 <Header />
 
 <main class="prose-zinc fixed inset-0 min-h-screen min-w-[365px] overflow-x-auto dark:prose-invert" style="padding-top: {$headerHeight}px">
-	<div class="bg-pattern-light dark:bg-pattern-dark min-h-full">
-		<div class="container mx-auto flex flex-col gap-4 p-4">
+	<div class="bg-pattern-light dark:bg-pattern-dark flex min-h-full flex-col">
+		<div class="container mx-auto flex flex-col gap-4 px-4 py-8">
 			<slot />
-
-			<Footer />
 		</div>
+
+		<Footer />
 	</div>
 </main>
 

@@ -3,8 +3,8 @@
 	import Brand from './Brand.svelte';
 </script>
 
-<div class="flex flex-col rounded-md border bg-surface-100 shadow-sm">
-	<div class="flex flex-col items-center gap-4 p-4 sm:flex-row">
+<div class="flex flex-grow flex-col border-t bg-primary/25 shadow-sm dark:bg-primary/50">
+	<div class="container mx-auto flex flex-col items-center gap-4 p-4 sm:flex-row xl:max-w-[1636px]">
 		<Brand />
 
 		<!-- PRIVACY POLICY -->
