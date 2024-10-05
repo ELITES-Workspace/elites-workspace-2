@@ -9,9 +9,9 @@
 
 <Header />
 
-<main class="prose-zinc fixed inset-0 min-h-screen min-w-[365px] overflow-x-auto dark:prose-invert" style="padding-top: {$headerHeight}px">
+<main class="prose-zinc fixed inset-0 min-h-full min-w-[365px] overflow-x-auto dark:prose-invert" style="padding-top: {$headerHeight}px">
 	<div class="bg-pattern-light dark:bg-pattern-dark flex min-h-full flex-col">
-		<div class="container mx-auto flex flex-col gap-4 px-4 py-8">
+		<div class="container mx-auto flex flex-col gap-4 px-4 pb-10 pt-4">
 			<slot />
 		</div>
 
