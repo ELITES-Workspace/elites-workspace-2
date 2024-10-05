@@ -11,7 +11,7 @@
 
 <main class="prose-zinc fixed inset-0 min-h-full min-w-[365px] overflow-x-auto dark:prose-invert" style="padding-top: {$headerHeight}px">
 	<div class="bg-pattern-light dark:bg-pattern-dark flex min-h-full flex-col">
-		<div class="container mx-auto flex flex-col gap-4 px-4 pb-10 pt-4">
+		<div class="container mx-auto flex flex-col gap-12 px-4 pb-8 pt-4 md:pb-10 md:pt-8">
 			<slot />
 		</div>
 

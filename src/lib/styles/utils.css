@@ -23,4 +23,7 @@
 	.bg-dark-glass {
 		@apply bg-zinc-800/20 dark:bg-zinc-800/40;
 	}
+	.bg-violet-glass {
+		@apply bg-violet-600/20 dark:bg-violet-600/40;
+	}
 }

@@ -107,25 +107,15 @@
 		</div>
 
 		<!-- LINKS -->
-		<ul class="flex justify-center gap-2 text-sm md:text-base lg:hidden">
-			<li>
-				<a class="text-icon-link" href="/membership">
-					<i class="ph-bold ph-handshake"></i>
-					Membership
-				</a>
-			</li>
-			<li>
-				<a class="text-icon-link" href="/merchandise">
-					<i class="ph-bold ph-storefront"></i>
-					Merchandise
-				</a>
-			</li>
-			<li>
-				<a class="text-icon-link" href="/forum">
-					<i class="ph-bold ph-chat-centered-text"></i>
-					Forum
-				</a>
-			</li>
+		<ul class="flex justify-center gap-1 text-sm md:gap-2 md:text-base lg:hidden">
+			{#each links as { title, icon, href, isCurrent }}
+				<li>
+					<a class={cn('text-icon-link', { 'text-primary': isCurrent })} {href}>
+						<i class={cn('ph-bold', icon)}></i>
+						{title}
+					</a>
+				</li>
+			{/each}
 		</ul>
 	</div>
 </header>

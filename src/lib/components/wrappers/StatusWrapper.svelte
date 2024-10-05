@@ -1,14 +1,18 @@
 <script lang="ts">
+	// IMPORTED ASSETS
+	import tinyHouseBroPNG from '$lib/assets/storysets/Tiny house-bro.png';
 	// IMPORTED TYPES
 	import type { Notice } from '$lib/types';
 	// IMPORTED DEP-MODULES
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import toast from 'svelte-french-toast';
+	import { windowSizeStore } from 'svelte-legos';
 
 	// -- STATES -- //
 
 	let isMounted = false;
+	let size = windowSizeStore();
 
 	// -- REACTIVE STATES -- //
 
@@ -63,3 +67,12 @@
 </script>
 
 <svelte:window on:offline={handleOffline} on:online={handleOnline} />
+
+{#if $size.width < 365}
+	<div class="flex-center pointer-events-none fixed inset-0 z-[1000] bg-surface-100">
+		<div class="flex flex-col gap-2 p-4">
+			<img src={tinyHouseBroPNG} alt="Tiny House" />
+			<small class="text-center">This device is incompatible because the screen width is too small to render properly.</small>
+		</div>
+	</div>
+{/if}
