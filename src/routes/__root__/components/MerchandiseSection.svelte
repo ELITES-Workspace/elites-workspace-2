@@ -23,6 +23,7 @@
 	let items = [
 		{
 			name: 'ELITES Shirt',
+			note: 'for Members',
 			seller: 'ELITES Organization',
 			thumbnail: '/images/merch/TNEBLACKmember.png',
 			logo: '/images/logos/elites-logo.png',
@@ -31,14 +32,31 @@
 		},
 		{
 			name: 'ELITES Lanyard',
+			note: 'for Members',
 			seller: 'ELITES Organization',
 			thumbnail: '/images/merch/LANYARDmember.png',
 			logo: '/images/logos/elites-logo.png',
 			price: '120.00',
 			sold: 0,
 		},
-		null,
-		null,
+		{
+			name: 'ELITES Shirt',
+			note: 'for Non-members',
+			seller: 'ELITES Organization',
+			thumbnail: '/images/merch/TNEBLACKnonmember.png',
+			logo: '/images/logos/elites-logo.png',
+			price: '520.00',
+			sold: 0,
+		},
+		{
+			name: 'ELITES Lanyard',
+			note: 'for Non-members',
+			seller: 'ELITES Organization',
+			thumbnail: '/images/merch/LANYARDnonmember.png',
+			logo: '/images/logos/elites-logo.png',
+			price: '150.00',
+			sold: 0,
+		},
 	];
 
 	// -- REACTIVE STATES -- //
@@ -78,7 +96,7 @@
 		<div id="swiper-merchandise" class="swiper">
 			<!-- SLIDER -->
 			<div class="swiper-wrapper">
-				{#each items as item, i}
+				{#each items as item, i (i)}
 					{#if item}
 						<a class="swiper-slide flex flex-col overflow-hidden rounded-md border bg-surface-100 shadow-sm hover:bg-accent" href="/" bind:clientHeight={slideHeight}>
 							<!-- IMAGE -->
@@ -87,7 +105,7 @@
 								style="background-image: url('{item.thumbnail}')"
 							>
 								<div
-									class="absolute left-0 top-0 h-[50%] w-full bg-gradient-to-b from-primary to-transparent opacity-30 transition-opacity group-hover:opacity-0"
+									class="absolute left-0 top-0 h-[50%] w-full bg-gradient-to-b from-primary to-transparent opacity-35 transition-opacity group-hover:opacity-0"
 								/>
 								<div class="absolute left-0 top-0 z-10 p-2 transition-opacity group-hover:opacity-0">
 									<img class="mr-1 inline aspect-square h-fit w-[15%] rounded-full" src={item.logo} alt={item.name} />
@@ -95,7 +113,10 @@
 							</div>
 							<!-- DETAILS -->
 							<div class="flex flex-col gap-2 p-3">
-								<strong class="text-lg">{item.name}</strong>
+								<span class="flex-start-center gap-2">
+									<strong class="text-lg">{item.name}</strong>
+									<small class="text-muted-foreground text-xs">({item.note})</small>
+								</span>
 								<p class="leading-none text-secondary">₱{item.price}</p>
 								<div class="flex items-end justify-between">
 									<small class="text-muted-foreground text-xs">{item.seller}</small>
@@ -104,9 +125,15 @@
 							</div>
 						</a>
 					{:else if !$isMDDown}
-						<div class="swiper-slide flex-center flex-center rounded-md border bg-surface-100 p-4 shadow-sm grayscale" style="min-height: {slideHeight}px">
-							<Tooltip title="Coming soon...">
-								<img class="cursor-help opacity-50" src={i === 2 ? thinkingFaceBroPNG : choiceBroPNG} alt="Upcoming" />
+						<div
+							class="swiper-slide relative flex items-stretch rounded-md border bg-surface-100 bg-contain bg-center bg-no-repeat p-4 opacity-75 shadow-sm grayscale"
+							style="
+                                min-height: {slideHeight}px;
+                                background-image: url('{i === 2 ? thinkingFaceBroPNG : choiceBroPNG}');
+                            "
+						>
+							<Tooltip title="Coming soon..." autoPlacement>
+								<div class="absolute inset-0 cursor-help"></div>
 							</Tooltip>
 						</div>
 					{/if}
@@ -119,8 +146,8 @@
 	</div>
 </section>
 
-<style lang="css">
+<style lang="postcss">
 	:global(#swiper-merchandise .swiper-pagination-bullet-active) {
-		@apply bg-primary;
+		@apply bg-secondary;
 	}
 </style>
