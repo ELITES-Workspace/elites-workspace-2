@@ -8,7 +8,4 @@
 	export { className as class };
 </script>
 
-<DropdownMenuPrimitive.Separator
-	class={cn('-mx-1 my-1 h-px border-border bg-border', className)}
-	{...$$restProps}
-/>
+<DropdownMenuPrimitive.Separator class={cn('-mx-1 my-1 h-px border-b', className)} {...$$restProps} />

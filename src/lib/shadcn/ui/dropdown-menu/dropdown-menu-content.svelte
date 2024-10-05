@@ -14,10 +14,7 @@
 <DropdownMenuPrimitive.Content
 	{transition}
 	{transitionConfig}
-	class={cn(
-		'z-[70] min-w-[8rem] rounded-md border bg-popover p-1 text-popover-foreground shadow-md focus:outline-none',
-		className,
-	)}
+	class={cn('z-[70] min-w-[8rem] rounded-md border bg-surface-100 p-1 text-popover-foreground shadow-md focus:outline-none', className)}
 	{...$$restProps}
 	on:keydown
 >

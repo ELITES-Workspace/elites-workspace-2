@@ -1,27 +1,36 @@
+/* IMPORTED STYLES */
+@import './utils.css';
+@import './components.css';
+@import './nprogress.css';
+@import './svelty-picker.css';
+
+/* -- TAILWINDCSS -- */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+	/* -- DEFAULT -- */
 	* {
-		@apply border-border m-0 box-border p-0;
+		@apply m-0 box-border p-0;
 		font-family: 'Poppins', sans-serif;
 		scrollbar-width: thin;
 		scrollbar-color: theme('colors.stone.300') theme('colors.stone.100');
 		-webkit-tap-highlight-color: transparent;
 	}
 	html {
-		@apply text-[16px];
+		@apply bg-surface-100 text-[16px];
 	}
 
-	/* PHOSPHOR ICONS */
+	/* -- PHOSPHOR ICONS -- */
 	.ph,
 	.ph-bold,
 	.ph-fill {
-		@apply text-lg;
+		@apply text-inherit;
 	}
 
-	/* SVELTE-UX */
+	/* -- SVELTE-UX -- */
 	.Field.opacity-50,
 	.TextField.opacity-50 {
 		opacity: 0.75 !important;

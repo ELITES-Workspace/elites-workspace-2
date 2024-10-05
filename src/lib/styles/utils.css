@@ -1,0 +1,13 @@
+/* -- FLEXBOX -- */
+.flex-center {
+	@apply flex items-center justify-center;
+}
+.flex-start-center {
+	@apply flex items-center justify-start;
+}
+.flex-start-end {
+	@apply flex items-end justify-start;
+}
+.flex-end-center {
+	@apply flex items-center justify-end;
+}
