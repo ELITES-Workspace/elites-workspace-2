@@ -1,0 +1,11 @@
+/* -- FONTS -- */
+
+@font-face {
+	font-family: 'Alien Invader';
+	src: url('$lib/assets/fonts/AlienInvader.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Ultimate Gear';
+	src: url('$lib/assets/fonts/UltimateGear.otf') format('opentype');
+}

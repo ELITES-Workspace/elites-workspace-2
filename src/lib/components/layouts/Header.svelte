@@ -1,23 +1,15 @@
 <script lang="ts">
-	// IMPORTED ASSETS
-	import elitesLogoPNG from '$lib/assets/logos/elites-logo.png';
 	// IMPORTED DEP-COMPONENTS
-	import { Avatar, Tooltip, ThemeSwitch } from 'svelte-ux';
+	import { Avatar, ThemeSwitch, Tooltip } from 'svelte-ux';
 	// IMPORTED COMPONENTS
 	import { DropdownMenu } from '$lib/shadcn';
+	import Brand from './Brand.svelte';
 </script>
 
 <header class="shadow-xs border-b">
-	<div class="container mx-auto flex flex-col gap-2 p-4 pb-2 lg:flex-row lg:pb-4">
+	<div class="container mx-auto flex flex-col gap-2 p-4 pb-2 lg:flex-row lg:pb-4 xl:max-w-[1636px]">
 		<div class="flex-start-center flex-grow gap-4">
-			<!-- BRAND -->
-			<Tooltip title="Click to go to Home">
-				<a class="flex-start-center gap-1 lg:gap-2" href="/">
-					<img class="w-12" src={elitesLogoPNG} alt="Elites Logo" />
-					<strong class="text-lg text-primary lg:text-xl">ELITES</strong>
-					<span class="rounded-sm bg-primary px-2 py-[1px] text-xs text-white lg:py-0 lg:text-sm">Workspace</span>
-				</a>
-			</Tooltip>
+			<Brand />
 
 			<!-- LINKS -->
 			<ul class="ml-auto hidden gap-2 lg:flex">
