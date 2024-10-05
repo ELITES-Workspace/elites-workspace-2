@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		@apply border-border m-0 box-border p-0;
+		font-family: 'Poppins', sans-serif;
+		scrollbar-width: thin;
+		scrollbar-color: theme('colors.stone.300') theme('colors.stone.100');
+		-webkit-tap-highlight-color: transparent;
+	}
+	html {
+		@apply text-[16px];
+	}
+
+	/* PHOSPHOR ICONS */
+	.ph,
+	.ph-bold,
+	.ph-fill {
+		@apply text-lg;
+	}
+
+	/* SVELTE-UX */
+	.Field.opacity-50,
+	.TextField.opacity-50 {
+		opacity: 0.75 !important;
+	}
+}

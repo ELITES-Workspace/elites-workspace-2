@@ -1,0 +1,16 @@
+{
+	"short_name": "ELITS Workspace",
+	"name": "BulSU ELITES Workspace",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "favicon.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"background_color": "#083344",
+	"theme_color": "#0891b2",
+	"display": "standalone",
+	"scope": "/"
+}
