@@ -6,3 +6,4 @@ export { default as Heading } from './layouts/Heading.svelte';
 
 // -- WRAPPERS -- //
 export { default as NProgressWrapper } from './wrappers/NProgressWrapper.svelte';
+export { default as StatusWrapper } from './wrappers/StatusWrapper.svelte';

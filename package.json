@@ -41,6 +41,7 @@
 		"nprogress": "^0.2.0",
 		"svelte-french-toast": "^1.2.0",
 		"svelte-legos": "^0.2.5",
+		"svelte-simple-counter": "^0.0.9",
 		"svelte-ux": "^0.74.9",
 		"tailwind-merge": "^2.5.3",
 		"tailwind-variants": "^0.2.1",

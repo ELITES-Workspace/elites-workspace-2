@@ -1,0 +1,65 @@
+<script lang="ts">
+	// IMPORTED TYPES
+	import type { Notice } from '$lib/types';
+	// IMPORTED DEP-MODULES
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import toast from 'svelte-french-toast';
+
+	// -- STATES -- //
+
+	let isMounted = false;
+
+	// -- REACTIVE STATES -- //
+
+	$: noticeRaw = $page.url.searchParams.get('notice');
+
+	// -- REACTIVE STATEMENTS -- //
+
+	$: if (noticeRaw && isMounted) handleNotice(noticeRaw);
+
+	// -- FUNCTIONS -- //
+
+	const handleOffline = () => toast.error('Your device is offline!');
+
+	const handleOnline = () => toast.success('Your connection was restored!');
+
+	function handleNotice(raw: string) {
+		const notice = JSON.parse(raw) as Notice;
+		const noticesRaw = sessionStorage.getItem('notices') || '[]';
+
+		let notices = JSON.parse(noticesRaw) as Notice[];
+
+		if (notices.some(({ id }) => id === notice.id)) return;
+
+		notices.unshift(notice);
+		notices = notices.slice(0, 9);
+
+		toast.error(notice.message);
+
+		sessionStorage.setItem('notices', JSON.stringify(notices));
+	}
+
+	function scanCompatibility() {
+		try {
+			if (typeof sessionStorage === 'undefined') throw new Error('Compatibility issue with Local Storage!');
+		} catch (error: any) {
+			toast.error(error.message);
+		}
+	}
+
+	// -- LIFECYCLES --//
+
+	onMount(() => {
+		scanCompatibility();
+
+		// FINISH LOADING STATE
+		document.body.classList.remove('pointer-events-none');
+		document.body.classList.remove('blur-lg');
+
+		isMounted = true;
+		return () => (isMounted = false);
+	});
+</script>
+
+<svelte:window on:offline={handleOffline} on:online={handleOnline} />

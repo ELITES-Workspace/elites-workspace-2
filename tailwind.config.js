@@ -23,7 +23,7 @@ export default {
 			light: {
 				primary: colors['cyan']['700'],
 				'primary-content': 'white',
-				secondary: colors['zinc']['800'],
+				secondary: colors['yellow']['600'],
 				'secondary-content': 'white',
 				accent: colors['zinc']['200'],
 				'accent-content': 'black',
@@ -44,7 +44,7 @@ export default {
 			dark: {
 				primary: colors['cyan']['700'],
 				'primary-content': 'white',
-				secondary: colors['zinc']['800'],
+				secondary: colors['yellow']['600'],
 				'secondary-content': 'white',
 				accent: colors['zinc']['700'],
 				'accent-content': 'black',

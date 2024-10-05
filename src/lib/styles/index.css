@@ -18,11 +18,10 @@
 		@apply m-0 box-border p-0;
 		font-family: 'Poppins', sans-serif;
 		scrollbar-width: thin;
-		scrollbar-color: theme('colors.stone.300') theme('colors.stone.100');
 		-webkit-tap-highlight-color: transparent;
 	}
-	html {
-		@apply bg-surface-100 text-[16px];
+	body {
+		@apply bg-surface-100 text-[16px] text-zinc-900 dark:text-zinc-100;
 	}
 
 	/* -- PHOSPHOR ICONS -- */

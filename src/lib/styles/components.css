@@ -1,10 +1,12 @@
-/* -- TYPOGRAPHY -- */
-.text-link {
-	@apply hover:underline;
-}
-.text-icon-link {
-	@apply flex items-center gap-2 rounded-sm px-2 hover:bg-accent;
-}
-.with-prose {
-	@apply prose prose-sm md:prose-base;
+@layer components {
+	/* -- TYPOGRAPHY -- */
+	.text-link {
+		@apply hover:underline;
+	}
+	.text-icon-link {
+		@apply flex items-center gap-2 rounded-sm px-2 hover:bg-accent;
+	}
+	.with-prose {
+		@apply prose prose-sm md:prose-base;
+	}
 }

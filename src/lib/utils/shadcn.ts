@@ -17,7 +17,9 @@ type FlyAndScaleParams = {
 
 // -- FUNCTIONS -- //
 
-export const cn = (...inputs: ClassValue[]): string => twMerge(clsx(inputs));
+export const cntw = (...inputs: ClassValue[]): string => twMerge(clsx(inputs));
+
+export const cn = (...inputs: ClassValue[]): string => clsx(inputs);
 
 export const flyAndScale = (node: Element, params: FlyAndScaleParams = { y: -8, x: 0, start: 0.95, duration: 150 }): TransitionConfig => {
 	const style = getComputedStyle(node);

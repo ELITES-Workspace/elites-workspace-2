@@ -7,8 +7,8 @@
 
 <Heading icon="ph-fill ph-gavel" title="CBL" />
 
-<section class="flex-center rounded-md border border-dashed bg-surface-200 p-4 shadow-sm md:p-6">
-	<div class="flex-start-center w-fit overflow-hidden rounded-sm border bg-surface-100">
+<section class="flex-center bg-dark-glass rounded-md border border-dashed p-4 shadow-sm md:p-6">
+	<div class="flex-start-center w-fit overflow-hidden rounded-sm border bg-surface-100 shadow-sm">
 		<small class="overflow-hidden text-ellipsis whitespace-nowrap px-4">ELITES - Constitution and By-Laws (2024-2025).pdf</small>
 
 		<!-- DOWNLOAD -->

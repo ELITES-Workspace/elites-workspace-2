@@ -8,11 +8,38 @@
 </script>
 
 <script lang="ts">
+	// IMPORTED DEP-MODULES
+	import { page } from '$app/stores';
+	// IMPORTED MODULES
+	import { cn } from '$lib/utils';
 	// IMPORTED DEP-COMPONENTS
 	import { Avatar, ThemeSwitch, Tooltip } from 'svelte-ux';
 	// IMPORTED COMPONENTS
 	import { DropdownMenu } from '$lib/shadcn';
 	import Brand from './Brand.svelte';
+
+	// -- REACTIVE STATES -- //
+
+	$: links = [
+		{
+			title: 'Membership',
+			icon: 'ph-handshake',
+			href: '/membership',
+			isCurrent: $page.url.pathname === '/membership',
+		},
+		{
+			title: 'Merchandise',
+			icon: 'ph-storefront',
+			href: '/merchandise',
+			isCurrent: $page.url.pathname === '/merchandise',
+		},
+		{
+			title: 'Forum',
+			icon: 'ph-chat-centered-text',
+			href: '/forum',
+			isCurrent: $page.url.pathname === '/forum',
+		},
+	];
 </script>
 
 <header class="shadow-xs fixed z-10 w-full min-w-[365px] overflow-x-auto border-b bg-surface-100" bind:clientHeight={$headerHeight}>
@@ -22,24 +49,14 @@
 
 			<!-- LINKS -->
 			<ul class="ml-auto hidden gap-2 lg:flex">
-				<li>
-					<a class="text-icon-link" href="/membership">
-						<i class="ph-bold ph-handshake"></i>
-						Membership
-					</a>
-				</li>
-				<li>
-					<a class="text-icon-link" href="/merchandise">
-						<i class="ph-bold ph-storefront"></i>
-						Merchandise
-					</a>
-				</li>
-				<li>
-					<a class="text-icon-link" href="/forum">
-						<i class="ph-bold ph-chat-centered-text"></i>
-						Forum
-					</a>
-				</li>
+				{#each links as { title, icon, href, isCurrent }, i}
+					<li>
+						<a class={cn('text-icon-link', { 'text-primary': isCurrent })} {href}>
+							<i class={cn('ph-bold', icon)}></i>
+							{title}
+						</a>
+					</li>
+				{/each}
 			</ul>
 
 			<!-- DIVIDER -->

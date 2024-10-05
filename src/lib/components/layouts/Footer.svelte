@@ -3,7 +3,7 @@
 	import Brand from './Brand.svelte';
 </script>
 
-<div class="flex flex-grow flex-col border-t bg-primary/25 shadow-sm dark:bg-primary/50">
+<div class="bg-primary-glass flex flex-grow flex-col border-t shadow-sm">
 	<div class="container mx-auto flex flex-col items-center gap-4 p-4 sm:flex-row xl:max-w-[1636px]">
 		<Brand />
 
@@ -23,7 +23,7 @@
 	<!-- COPYRIGHT -->
 	<p class="p-4 text-center text-xs">
 		© {new Date().getFullYear()} Exemplary League of Information Technology Students | All Rights Reserved.<br />
-		<span class="text-[10px] text-primary">
+		<span class="text-[10px] text-primary dark:text-cyan-600">
 			Developed by
 			<a class="hover:underline" href="https://www.facebook.com/arben.apura.9/" target="_blank"> Arben Apura </a>
 		</span>

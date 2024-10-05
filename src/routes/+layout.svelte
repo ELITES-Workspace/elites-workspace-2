@@ -2,7 +2,7 @@
 	// IMPORTED MODULES
 	import { headerHeight } from '$lib/components/layouts/Header.svelte';
 	// IMPORTED COMPONENTS
-	import { Footer, Header, NProgressWrapper } from '$lib/components';
+	import { Footer, Header, NProgressWrapper, StatusWrapper } from '$lib/components';
 	// IMPORTED STYLES
 	import '$lib/styles/index.css';
 </script>
@@ -20,4 +20,5 @@
 </main>
 
 <!-- WRAPPERS -->
+<StatusWrapper />
 <NProgressWrapper />

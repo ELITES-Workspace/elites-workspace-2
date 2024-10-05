@@ -614,6 +614,11 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
+bezier-easing@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
+  integrity sha512-gbIqZ/eslnUFC1tjEvtz0sgx+xTK20wDnYMIA27VA04R7w6xxXQPZDbibjA9DTWZRA2CXtwHykkVzlCaAJAZig==
+
 binary-extensions@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz#f6e14a97858d327252200242d4ccfe522c445522"
@@ -1974,6 +1979,13 @@ svelte-preprocess@^6.0.2:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-6.0.3.tgz#fdc1f9dc41b6f22bf8b1f059e9f21eaaae181eeb"
   integrity sha512-PLG2k05qHdhmRG7zR/dyo5qKvakhm8IJ+hD2eFRQmMLHp7X3eJnjeupUtvuRpbNiF31RjVw45W+abDwHEmP5OA==
+
+svelte-simple-counter@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/svelte-simple-counter/-/svelte-simple-counter-0.0.9.tgz#34362c0e5d3f0797d943e5739d7bbe2ded1d4f15"
+  integrity sha512-Luts1FQfHGEFBe8DBvVI9auFi0S4xex6v5aGxab7pIZinXoPJ+usASGxeunIDvokAQOuKinBhtcR5/ypkjCYKg==
+  dependencies:
+    bezier-easing "^2.1.0"
 
 svelte-ux@^0.74.9:
   version "0.74.9"
