@@ -18,12 +18,12 @@
 		@apply bg-primary/20 dark:bg-primary/40;
 	}
 	.bg-secondary-glass {
-		@apply bg-yellow-400/20 dark:bg-yellow-400/40;
+		@apply bg-secondary/20 dark:bg-secondary/40;
+	}
+	.bg-primary-secondary-gradient-glass {
+		@apply bg-gradient-to-t from-primary/40 to-secondary/40;
 	}
 	.bg-dark-glass {
 		@apply bg-zinc-800/20 dark:bg-zinc-800/40;
-	}
-	.bg-violet-glass {
-		@apply bg-violet-600/20 dark:bg-violet-600/40;
 	}
 }

@@ -7,12 +7,12 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import toast from 'svelte-french-toast';
-	import { windowSizeStore } from 'svelte-legos';
+	// IMPORTED MODULES
+	import { updateMedia, windowWidth } from '$lib/stores';
 
 	// -- STATES -- //
 
 	let isMounted = false;
-	let size = windowSizeStore();
 
 	// -- REACTIVE STATES -- //
 
@@ -27,6 +27,12 @@
 	const handleOffline = () => toast.error('Your device is offline!');
 
 	const handleOnline = () => toast.success('Your connection was restored!');
+
+	function handleResize() {
+		if (typeof window === 'undefined') return;
+
+		windowWidth.set(window.innerWidth);
+	}
 
 	function handleNotice(raw: string) {
 		const notice = JSON.parse(raw) as Notice;
@@ -56,6 +62,7 @@
 
 	onMount(() => {
 		scanCompatibility();
+		handleResize();
 
 		// FINISH LOADING STATE
 		document.body.classList.remove('pointer-events-none');
@@ -66,9 +73,9 @@
 	});
 </script>
 
-<svelte:window on:offline={handleOffline} on:online={handleOnline} />
+<svelte:window on:resize={handleResize} on:offline={handleOffline} on:online={handleOnline} />
 
-{#if $size.width < 365}
+{#if isMounted && $windowWidth < 365}
 	<div class="flex-center pointer-events-none fixed inset-0 z-[1000] bg-surface-100">
 		<div class="flex flex-col gap-2 p-4">
 			<img src={tinyHouseBroPNG} alt="Tiny House" />

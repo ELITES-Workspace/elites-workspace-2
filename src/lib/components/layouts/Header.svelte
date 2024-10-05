@@ -29,7 +29,7 @@
 		},
 		{
 			title: 'Merchandise',
-			icon: 'ph-storefront',
+			icon: 'ph-shopping-cart',
 			href: '/merchandise',
 			isCurrent: $page.url.pathname === '/merchandise',
 		},

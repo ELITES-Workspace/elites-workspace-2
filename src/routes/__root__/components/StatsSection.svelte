@@ -25,12 +25,12 @@
 				<div class="flex-center relative min-w-[120px] rounded-l-md border bg-surface-100 p-4">
 					<strong class="whitespace-nowrap text-sm">Registered</strong>
 				</div>
-				<div class="flex-start-center relative w-full rounded-r-md border border-l-0 bg-yellow-50/75 dark:bg-yellow-700/50">
+				<div class="flex-start-center relative w-full rounded-r-md border border-l-0 bg-violet-50/75 dark:bg-violet-700/50">
 					<div
-						class="h-[56px] min-w-[56px] max-w-[100%] rounded-r-full bg-yellow-400 transition-[width] duration-1000 ease-in-out"
+						class="h-[56px] min-w-[56px] max-w-[100%] rounded-r-full bg-violet-400 transition-[width] duration-1000 ease-in-out"
 						style="width: calc({registered / 10}% + 56px); transition-delay: 200ms"
 					/>
-					<div class="flex-center relative ml-[-56px] h-[56px] w-[56px] rounded-full bg-yellow-600 text-white ring-[8px] ring-yellow-300 ring-opacity-50">
+					<div class="flex-center relative ml-[-56px] h-[56px] w-[56px] rounded-full bg-violet-600 text-white ring-[8px] ring-violet-300 ring-opacity-50">
 						<p class="text-sm font-semibold">
 							{#if loading}
 								...
@@ -39,7 +39,7 @@
 							{/if}
 						</p>
 					</div>
-					<p class="absolute right-[8px] text-xs text-yellow-400">1000</p>
+					<p class="absolute right-[8px] text-xs text-violet-400">1000</p>
 				</div>
 			</div>
 		</div>
@@ -54,12 +54,12 @@
 				<div class="flex-center relative min-w-[120px] whitespace-nowrap rounded-l-md border bg-surface-100 p-4">
 					<strong class="text-sm">Pre-ordered</strong>
 				</div>
-				<div class="flex-start-center relative w-full rounded-r-md border border-l-0 bg-yellow-50/75 dark:bg-yellow-700/50">
+				<div class="flex-start-center relative w-full rounded-r-md border border-l-0 bg-violet-50/75 dark:bg-violet-700/50">
 					<div
-						class="h-[56px] min-w-[56px] max-w-[100%] rounded-r-full bg-yellow-400 transition-[width] duration-1000 ease-in-out"
+						class="h-[56px] min-w-[56px] max-w-[100%] rounded-r-full bg-violet-400 transition-[width] duration-1000 ease-in-out"
 						style="width: calc({preOrdered / 10}% + 56px); transition-delay: 200ms"
 					/>
-					<div class="flex-center relative ml-[-56px] h-[56px] w-[56px] rounded-full bg-yellow-600 text-white ring-[8px] ring-yellow-300 ring-opacity-50">
+					<div class="flex-center relative ml-[-56px] h-[56px] w-[56px] rounded-full bg-violet-600 text-white ring-[8px] ring-violet-300 ring-opacity-50">
 						<p class="text-sm font-semibold">
 							{#if loading}
 								...
@@ -68,7 +68,7 @@
 							{/if}
 						</p>
 					</div>
-					<p class="absolute right-[8px] text-xs text-yellow-400">1000</p>
+					<p class="absolute right-[8px] text-xs text-violet-400">1000</p>
 				</div>
 			</div>
 		</div>
