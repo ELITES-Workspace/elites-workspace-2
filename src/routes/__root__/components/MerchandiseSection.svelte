@@ -8,11 +8,12 @@
 	import { onMount } from 'svelte';
 	// IMPORTED MODULES
 	import { isSMDown, isMD, isMDDown, isLG } from '$lib/stores';
+	// IMPORTED DEP-COMPONENTS
+	import { Tooltip, Gooey } from 'svelte-ux';
 	// IMPORTED COMPONENTS
 	import { Heading } from '$lib/components';
 	// IMPORTED STYLES
 	import 'swiper/css/bundle';
-	import { Tooltip } from 'svelte-ux';
 
 	// -- STATES -- //
 
@@ -98,7 +99,11 @@
 			<div class="swiper-wrapper">
 				{#each items as item, i (i)}
 					{#if item}
-						<a class="swiper-slide flex flex-col overflow-hidden rounded-md border bg-surface-100 shadow-sm hover:bg-accent" href="/" bind:clientHeight={slideHeight}>
+						<a
+							class="swiper-slide flex flex-col overflow-hidden rounded-md border bg-surface-100 shadow-sm hover:bg-accent"
+							href="/"
+							bind:clientHeight={slideHeight}
+						>
 							<!-- IMAGE -->
 							<div
 								class="group relative aspect-square w-full border-b bg-gray-50 bg-cover bg-center dark:bg-gray-950"
@@ -108,7 +113,11 @@
 									class="absolute left-0 top-0 h-[50%] w-full bg-gradient-to-b from-primary to-transparent opacity-35 transition-opacity group-hover:opacity-0"
 								/>
 								<div class="absolute left-0 top-0 z-10 p-2 transition-opacity group-hover:opacity-0">
-									<img class="mr-1 inline aspect-square h-fit w-[15%] rounded-full" src={item.logo} alt={item.name} />
+									<img
+										class="mr-1 inline aspect-square h-fit w-[15%] rounded-full"
+										src={item.logo}
+										alt={item.name}
+									/>
 								</div>
 							</div>
 							<!-- DETAILS -->

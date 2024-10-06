@@ -8,7 +8,9 @@
 	import { onMount } from 'svelte';
 	import toast from 'svelte-french-toast';
 	// IMPORTED MODULES
-	import { updateMedia, windowWidth } from '$lib/stores';
+	import { isSMUp, windowWidth } from '$lib/stores';
+	// IMPORTED DEP-COMPONENTS
+	import { Toaster, type ToastPosition } from 'svelte-french-toast';
 
 	// -- STATES -- //
 
@@ -17,6 +19,8 @@
 	// -- REACTIVE STATES -- //
 
 	$: noticeRaw = $page.url.searchParams.get('notice');
+
+	$: toastPosition = ($isSMUp ? 'bottom-right' : 'top-center') as ToastPosition;
 
 	// -- REACTIVE STATEMENTS -- //
 
@@ -75,11 +79,16 @@
 
 <svelte:window on:resize={handleResize} on:offline={handleOffline} on:online={handleOnline} />
 
-{#if isMounted && $windowWidth < 365}
+{#if isMounted && $windowWidth < 340}
 	<div class="flex-center pointer-events-none fixed inset-0 z-[1000] bg-surface-100">
 		<div class="flex flex-col gap-2 p-4">
 			<img src={tinyHouseBroPNG} alt="Tiny House" />
-			<small class="text-center">This device is incompatible because the screen width is too small to render properly.</small>
+			<small class="text-center"
+				>This device is incompatible because the screen width is too small to render properly.</small
+			>
 		</div>
 	</div>
 {/if}
+
+<!-- TOAST WRAPPER -->
+<Toaster position={toastPosition} toastOptions={{ duration: 2500 }} />

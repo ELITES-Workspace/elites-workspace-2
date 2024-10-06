@@ -21,7 +21,7 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 	body {
-		@apply bg-surface-100 text-[16px] text-zinc-900 dark:text-zinc-100;
+		@apply bg-surface-100 text-[16px] text-slate-900 dark:text-slate-100;
 	}
 
 	/* -- PHOSPHOR ICONS -- */

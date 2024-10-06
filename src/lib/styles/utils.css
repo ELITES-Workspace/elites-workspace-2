@@ -15,15 +15,20 @@
 
 	/* -- BG COLOR -- */
 	.bg-primary-glass {
-		@apply bg-primary/20 dark:bg-primary/40;
+		@apply bg-primary/20 dark:bg-primary/30;
 	}
 	.bg-secondary-glass {
 		@apply bg-secondary/20 dark:bg-secondary/40;
 	}
 	.bg-primary-secondary-gradient-glass {
-		@apply bg-gradient-to-t from-primary/40 to-secondary/40;
+		@apply bg-gradient-to-t from-primary/30 to-secondary/40;
 	}
 	.bg-dark-glass {
-		@apply bg-zinc-800/20 dark:bg-zinc-800/40;
+		@apply bg-slate-800/20 dark:bg-slate-800/40;
+	}
+
+	/* -- CUSTOMIZATION -- */
+	.icon-prefix {
+		@apply mr-2 text-xl opacity-80;
 	}
 }

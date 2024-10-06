@@ -1,0 +1,11 @@
+// EXPORTED MODULES
+export * from './schema';
+export * from './utils';
+
+// IMPORTED DEP-MODULES
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
+
+const client = postgres(import.meta.env.VITE_DATABASE_URL);
+
+export const db = drizzle(client, { logger: true });
