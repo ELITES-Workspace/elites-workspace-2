@@ -91,7 +91,7 @@
 	<FieldsContainer class="flex flex-col items-center gap-4 p-4" label="Avatar">
 		<!-- AVATAR -->
 		<Avatar class="bg-primary-glass h-24 w-24 border p-2">
-			<img src={getAvatar(data.avatarSeed).toDataUri()} alt="Avatar" />
+			<img src={getAvatar(data.avatarSeed)} alt="Avatar" />
 		</Avatar>
 
 		<!-- RANDOMIZE -->

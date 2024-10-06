@@ -81,7 +81,7 @@
 					<DropdownMenu.Trigger>
 						<Tooltip title="Profile">
 							<Avatar class="bg-primary-glass border p-[2px]">
-								<img src={getAvatar($user.avatarSeed).toDataUri()} alt="Avatar" />
+								<img src={getAvatar($user.avatarSeed)} alt="Avatar" />
 							</Avatar>
 						</Tooltip>
 					</DropdownMenu.Trigger>
@@ -91,7 +91,7 @@
 						<DropdownMenu.Group>
 							<div class="bg-primary-glass flex flex-col items-center gap-2 rounded-sm p-2 pt-3">
 								<Avatar class="bg-primary-glass border p-[2px]">
-									<img src={getAvatar($user.avatarSeed).toDataUri()} alt="Avatar" />
+									<img src={getAvatar($user.avatarSeed)} alt="Avatar" />
 								</Avatar>
 
 								<strong class="text-sm">{$user.studentNumber}</strong>

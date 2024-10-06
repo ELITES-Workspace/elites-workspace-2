@@ -1,6 +1,9 @@
+// IMPORTED TYPES
+import type { User } from '$lib/types';
+// IMPORTED DEP-MODULES
+import { eq } from 'drizzle-orm';
 // IMPORTED MODULES
 import { decrypt, encrypt } from '$lib/server/utils';
-import { eq } from 'drizzle-orm';
 import { db } from '..';
 import { usersTable } from '../schema';
 
@@ -16,6 +19,14 @@ export async function createUser(user: typeof usersTable.$inferInsert): Promise<
 	if (await isStudentNumberTaken(user.studentNumber)) throw new Error('Student number is already taken!');
 
 	await db.insert(usersTable).values({ ...user, password: encrypt(user.password) });
+}
+
+export async function updateAvatarSeed(id: string, avatarSeed: string): Promise<User> {
+	const users = await db.update(usersTable).set({ avatarSeed }).where(eq(usersTable.id, id)).returning();
+
+	if (!users.length) throw new Error('User not found!');
+
+	return users[0];
 }
 
 export async function getUserByCredentials(studentNumber: string, password: string) {

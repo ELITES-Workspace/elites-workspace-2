@@ -71,6 +71,14 @@ export const handleLogout = () =>
 			}),
 	});
 
+export async function updateAvatarSeed(avatarSeed: string) {
+	const { data: result } = await axios.put('/api/auth/update-avatar-seed', { avatarSeed });
+
+	if (result.error) throw new Error(result.error.message);
+
+	if (result.data && result.data.user) user.set(result.data.user);
+}
+
 // -- SUBSCRIPTIONS -- //
 
 user.subscribe((value) => isLoggedIn.set(!!value));

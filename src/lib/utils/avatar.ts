@@ -4,4 +4,4 @@ import { bottts } from '@dicebear/collection';
 
 // -- FUNCTIONS -- //
 
-export const getAvatar = (seed: string) => createAvatar(bottts, { seed });
+export const getAvatar = (seed: string) => createAvatar(bottts, { seed }).toDataUri();
