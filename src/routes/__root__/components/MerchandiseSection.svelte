@@ -105,7 +105,8 @@
 								<p class="leading-none text-secondary">₱{item.price}</p>
 								<div class="flex items-end justify-between">
 									<small class="text-muted-foreground text-xs">ELITES Organization</small>
-									<small class="text-muted-foreground text-xs">{item.sold} sold</small>
+									<!-- <small class="text-muted-foreground text-xs">{item.sold} sold</small> -->
+									<small class="text-muted-foreground text-xs">? sold</small>
 								</div>
 							</div>
 						</a>

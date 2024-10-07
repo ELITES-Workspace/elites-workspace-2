@@ -94,12 +94,13 @@
 							{#if loading}
 								...
 							{:else}
-								<SimpleCounter
+								<!-- <SimpleCounter
 									value={sold}
 									transitionDuration={1000}
 									transitionTiming="ease-in-out"
 									prefersCSS={true}
-								/>
+								/> -->
+								?
 							{/if}
 						</p>
 					</div>

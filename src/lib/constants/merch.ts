@@ -18,11 +18,11 @@ export const MERCHS: Merch[] = [
 		code: 'ELITES_LANYARD_MEM',
 		name: 'ELITES Lanyard',
 		eligibility: 'members',
-		href: '/',
+		href: 'https://forms.gle/PebLQreHZALWCYZCA',
 		thumbnail: '/images/merch/LANYARDmember.png',
 		price: 120.0,
 		sold: 0,
-		isPreview: true,
+		isPreview: false,
 	},
 	{
 		code: 'TNE_BLACK_NONMEM',
@@ -38,11 +38,11 @@ export const MERCHS: Merch[] = [
 		code: 'ELITES_LANYARD_NONMEM',
 		name: 'ELITES Lanyard',
 		eligibility: 'non-members',
-		href: '/',
+		href: 'https://forms.gle/PebLQreHZALWCYZCA',
 		thumbnail: '/images/merch/LANYARDnonmember.png',
 		price: 150.0,
 		sold: 0,
-		isPreview: true,
+		isPreview: false,
 	},
 ];
 
