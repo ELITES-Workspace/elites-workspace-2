@@ -1,1 +1,0 @@
-ALTER TABLE "memberships" ADD COLUMN "is_confirmed" boolean DEFAULT false NOT NULL;

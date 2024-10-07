@@ -3,14 +3,14 @@ import type { RequestHandler } from './$types';
 // IMPORTED DEP-MODULES
 import { json } from '@sveltejs/kit';
 // IMPORTED MODULES
-import { updateMembership } from '$lib/server/db';
+import { listMemberships } from '$lib/server/db';
 
-export const PUT: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async () => {
 	let data = null;
 	let error = null;
 
 	try {
-		await updateMembership(params.membershipId, { isConfirmed: false, confirmedAt: null });
+		data = { memberships: await listMemberships() };
 	} catch (e: any) {
 		error = { message: e.message };
 	}

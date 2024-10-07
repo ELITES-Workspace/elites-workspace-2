@@ -10,7 +10,7 @@ export const PUT: RequestHandler = async ({ params }) => {
 	let error = null;
 
 	try {
-		await updateMembership(params.membershipId, { isConfirmed: true });
+		await updateMembership(params.membershipId, { isConfirmed: true, confirmedAt: new Date() });
 	} catch (e: any) {
 		error = { message: e.message };
 	}

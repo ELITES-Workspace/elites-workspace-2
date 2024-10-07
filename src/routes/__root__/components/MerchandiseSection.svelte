@@ -1,13 +1,17 @@
 <script lang="ts">
+	// IMPORTED TYPES
+	import type { Merch } from '$lib/types';
 	// IMPORTED ASSETS
 	import choiceBroPNG from '$lib/assets/storysets/Choice-bro.png';
 	import thinkingFaceBroPNG from '$lib/assets/storysets/Thinking face-bro.png';
+	// IMPORTED CONSTANTS
+	import { MERCHS } from '$lib/constants';
 	// IMPORTED DEP-MODULES
 	import { onMount } from 'svelte';
 	import Swiper from 'swiper';
 	import { Pagination } from 'swiper/modules';
 	// IMPORTED MODULES
-	import { isLG, isLGUp, isLoggedIn, isMD, isMember, isSMDown, openCustomDialog } from '$lib/stores';
+	import { isLG, isLGUp, isLoggedIn, isMD, isMember, isSMDown, membership, openCustomDialog } from '$lib/stores';
 	import { cn } from '$lib/utils';
 	// IMPORTED DEP-COMPONENTS
 	import { Tooltip } from 'svelte-ux';
@@ -23,53 +27,10 @@
 	let slideHeight = 0;
 
 	$: items = [
-		...($isMember
-			? [
-					{
-						name: 'ELITES Shirt',
-						note: 'for Members',
-						seller: 'ELITES Organization',
-						thumbnail: '/images/merch/TNEBLACKmember.png',
-						logo: '/images/logos/elites-logo.png',
-						price: '450.00',
-						sold: 0,
-						isPreview: true,
-					},
-					{
-						name: 'ELITES Lanyard',
-						note: 'for Members',
-						seller: 'ELITES Organization',
-						thumbnail: '/images/merch/LANYARDmember.png',
-						logo: '/images/logos/elites-logo.png',
-						price: '120.00',
-						sold: 0,
-						isPreview: true,
-					},
-					...Array($isLG ? 1 : $isLGUp ? 2 : 0).fill(null),
-				]
-			: [
-					{
-						name: 'ELITES Shirt',
-						note: 'for Non-members',
-						seller: 'ELITES Organization',
-						thumbnail: '/images/merch/TNEBLACKnonmember.png',
-						logo: '/images/logos/elites-logo.png',
-						price: '520.00',
-						sold: 0,
-						isPreview: true,
-					},
-					{
-						name: 'ELITES Lanyard',
-						note: 'for Non-members',
-						seller: 'ELITES Organization',
-						thumbnail: '/images/merch/LANYARDnonmember.png',
-						logo: '/images/logos/elites-logo.png',
-						price: '150.00',
-						sold: 0,
-						isPreview: true,
-					},
-					...Array($isLG ? 1 : $isLGUp ? 2 : 0).fill(null),
-				]),
+		...MERCHS.filter(
+			(v) => (v.eligibility === 'members' && $membership) || (v.eligibility === 'non-members' && !$membership),
+		),
+		...Array($isLG ? 1 : $isLGUp ? 2 : 0).fill(null),
 	];
 
 	// -- REACTIVE STATES -- //
@@ -116,7 +77,7 @@
 								'swiper-slide relative flex flex-col overflow-hidden rounded-md border bg-surface-100 shadow-sm',
 								!item.isPreview && 'hover:bg-accent',
 							)}
-							href={!$isLoggedIn || item.isPreview ? undefined : '/merchandise'}
+							href={!$isLoggedIn || item.isPreview ? undefined : item.href}
 							on:click={$isLoggedIn ? undefined : () => openCustomDialog('login')}
 							bind:clientHeight={slideHeight}
 						>
@@ -137,11 +98,13 @@
 							<div class="flex flex-col gap-2 p-3">
 								<span class="flex-start-center gap-2">
 									<strong class="text-lg">{item.name}</strong>
-									<small class="text-muted-foreground text-xs">({item.note})</small>
+									<small class="text-muted-foreground text-xs">
+										({item.eligibility === 'members' ? 'For Members' : 'For Non-members'})
+									</small>
 								</span>
 								<p class="leading-none text-secondary">₱{item.price}</p>
 								<div class="flex items-end justify-between">
-									<small class="text-muted-foreground text-xs">{item.seller}</small>
+									<small class="text-muted-foreground text-xs">ELITES Organization</small>
 									<small class="text-muted-foreground text-xs">{item.sold} sold</small>
 								</div>
 							</div>

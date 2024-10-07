@@ -1,4 +1,6 @@
 <script lang="ts">
+	// IMPORTED MODULES
+	import { isBulSUan } from '$lib/stores';
 	// IMPORTED COMPONENTS
 	import { Heading } from '$lib/components';
 	import CBLSection from './__root__/components/CBLSection.svelte';
@@ -10,7 +12,10 @@
 
 <Heading isHeadOnly />
 
-<MembershipSection />
+{#if $isBulSUan}
+	<MembershipSection />
+{/if}
+
 <MerchandiseSection />
 <StatsSection />
 <OfficersSection />

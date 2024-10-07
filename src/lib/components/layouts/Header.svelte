@@ -11,8 +11,8 @@
 	// IMPORTED DEP-MODULES
 	import { page } from '$app/stores';
 	// IMPORTED MODULES
-	import { handleLogout, isLoggedIn, openCustomDialog, user } from '$lib/stores';
-	import { cn, getAvatar } from '$lib/utils';
+	import { handleLogout, isBulSUan, isLoggedIn, membership, openCustomDialog, user } from '$lib/stores';
+	import { cn, formatFullName, getAvatar } from '$lib/utils';
 	// IMPORTED DEP-COMPONENTS
 	import { Avatar, ThemeSwitch, Tooltip } from 'svelte-ux';
 	// IMPORTED COMPONENTS
@@ -27,12 +27,14 @@
 			icon: 'ph-handshake',
 			href: '/membership',
 			isCurrent: $page.url.pathname === '/membership',
+			isHidden: !$isBulSUan,
 		},
 		{
 			title: 'Merchandise',
 			icon: 'ph-shopping-cart',
-			href: '/merchandise',
+			href: 'https://forms.gle/GeoxS4RBkXndWk3aA',
 			isCurrent: $page.url.pathname === '/merchandise',
+			isHidden: false,
 		},
 		// {
 		// 	title: 'Forum',
@@ -50,17 +52,19 @@
 
 			<!-- LINKS -->
 			<ul class="ml-auto hidden gap-2 lg:flex">
-				{#each links as { title, icon, href, isCurrent }, i}
-					<li>
-						<a
-							class={cn('text-icon-link cursor-pointer', { 'text-primary': isCurrent })}
-							href={$isLoggedIn ? href : undefined}
-							on:click={$isLoggedIn ? undefined : () => openCustomDialog('login')}
-						>
-							<i class={cn('ph-bold', icon)}></i>
-							{title}
-						</a>
-					</li>
+				{#each links as { title, icon, href, isCurrent, isHidden }, i}
+					{#if !isHidden}
+						<li>
+							<a
+								class={cn('text-icon-link cursor-pointer', { 'text-primary': isCurrent })}
+								href={$isLoggedIn ? href : undefined}
+								on:click={$isLoggedIn ? undefined : () => openCustomDialog('login')}
+							>
+								<i class={cn('ph-bold', icon)}></i>
+								{title}
+							</a>
+						</li>
+					{/if}
 				{/each}
 			</ul>
 
@@ -94,7 +98,12 @@
 									<img src={getAvatar($user.avatarSeed)} alt="Avatar" />
 								</Avatar>
 
-								<strong class="text-sm">{$user.studentNumber}</strong>
+								{#if $membership}
+									<strong class="text-sm">{formatFullName($membership)}</strong>
+									<small class="-mt-2 text-xs">{$user.studentNumber}</small>
+								{:else}
+									<strong class="text-sm">{$user.studentNumber}</strong>
+								{/if}
 							</div>
 
 							<DropdownMenu.Separator />
@@ -126,13 +135,15 @@
 
 		<!-- LINKS -->
 		<ul class="flex justify-center gap-1 text-sm md:gap-2 md:text-base lg:hidden">
-			{#each links as { title, icon, href, isCurrent }}
-				<li>
-					<a class={cn('text-icon-link', { 'text-primary': isCurrent })} {href}>
-						<i class={cn('ph-bold', icon)}></i>
-						{title}
-					</a>
-				</li>
+			{#each links as { title, icon, href, isCurrent, isHidden }}
+				{#if !isHidden}
+					<li>
+						<a class={cn('text-icon-link', { 'text-primary': isCurrent })} {href}>
+							<i class={cn('ph-bold', icon)}></i>
+							{title}
+						</a>
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	</div>

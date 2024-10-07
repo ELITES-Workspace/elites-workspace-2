@@ -5,71 +5,15 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1728204280427,
-      "tag": "0000_slim_talisman",
+      "when": 1728285465561,
+      "tag": "0000_fixed_titanium_man",
       "breakpoints": true
     },
     {
       "idx": 1,
       "version": "7",
-      "when": 1728204980038,
-      "tag": "0001_sad_toxin",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1728205658232,
-      "tag": "0002_fearless_unus",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1728243174120,
-      "tag": "0003_outstanding_inertia",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1728244913484,
-      "tag": "0004_previous_omega_sentinel",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1728244947517,
-      "tag": "0005_large_sunspot",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1728245009957,
-      "tag": "0006_unknown_corsair",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "7",
-      "when": 1728245385022,
-      "tag": "0007_fresh_maestro",
-      "breakpoints": true
-    },
-    {
-      "idx": 8,
-      "version": "7",
-      "when": 1728253662266,
-      "tag": "0008_giant_random",
-      "breakpoints": true
-    },
-    {
-      "idx": 9,
-      "version": "7",
-      "when": 1728255393869,
-      "tag": "0009_lucky_karma",
+      "when": 1728285491430,
+      "tag": "0001_productive_moira_mactaggert",
       "breakpoints": true
     }
   ]

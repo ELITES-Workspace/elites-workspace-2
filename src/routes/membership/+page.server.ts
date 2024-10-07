@@ -6,5 +6,7 @@ import { redirectWithNotice } from '$lib/server/utils';
 export const load: PageServerLoad = async ({ locals }) => {
 	if (!locals.user) throw redirectWithNotice('/', 'You must login to view this page.');
 
+	if (locals.user.studentNumber.startsWith('00')) throw redirectWithNotice('/', 'You must be a BulSuan to view this page.');
+
 	return {};
 };

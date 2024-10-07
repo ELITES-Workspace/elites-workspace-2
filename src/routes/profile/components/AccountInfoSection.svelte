@@ -1,6 +1,6 @@
 <script lang="ts">
 	// IMPORTED MODULES
-	import { membership, membershipStatus, user } from '$lib/stores';
+	import { isBulSUan, membership, membershipStatus, user } from '$lib/stores';
 	import { formatDateTimeDisplay, formatFullName } from '$lib/utils';
 	// IMPORTED DEP-COMPONENTS
 	import { Button, TextField } from 'svelte-ux';
@@ -18,8 +18,10 @@
 		<!-- STUDENT NUMBER -->
 		<TextField label="Sudent Number" value={$user.studentNumber} disabled />
 
-		<!-- MEMBERSHIP STATUS -->
-		<TextField label="Membership Status" value={$membershipStatus} disabled />
+		{#if $isBulSUan}
+			<!-- MEMBERSHIP STATUS -->
+			<TextField label="Membership Status" value={$membershipStatus} disabled />
+		{/if}
 
 		{#if $membership}
 			{#if $membership.isConfirmed && $membership.confirmedAt}

@@ -11,6 +11,17 @@ export type Membership = typeof memberships.$inferSelect & {
 	user?: User;
 };
 
+export type Merch = {
+	code: string;
+	name: string;
+	thumbnail: string;
+	price: number;
+	sold: number;
+	eligibility: 'members' | 'non-members';
+	href: string;
+	isPreview: boolean;
+};
+
 // -- FOR INSERT -- //
 
 export type InsertUser = typeof users.$inferInsert;

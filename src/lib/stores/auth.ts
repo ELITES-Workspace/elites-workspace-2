@@ -27,6 +27,7 @@ export const membership = writable<Membership | undefined>();
 export const membershipStatus = writable<MembershipStatus>();
 export const isMember = writable<boolean>(false);
 export const isLoggedIn = writable<boolean>(false);
+export const isBulSUan = writable<boolean>(false);
 
 // -- FUNCTIONS -- //
 
@@ -55,8 +56,6 @@ export async function login(studentNumber: string, password: string) {
 }
 
 export async function register(user: InsertUser) {
-	console.log({ user });
-
 	const { data: result } = await axios.post('/api/auth/register', user);
 
 	if (result.error) throw new Error(result.error.message);
@@ -105,6 +104,7 @@ user.subscribe((value) => {
 
 	isLoggedIn.set(!!value);
 	isMember.set(!!value?.memberships?.length && value?.memberships?.[0].isConfirmed);
+	isBulSUan.set(value ? value?.studentNumber.startsWith('20') || false : true);
 	membership.set(value?.memberships?.[0]);
 	membershipStatus.set(status as MembershipStatus);
 });
