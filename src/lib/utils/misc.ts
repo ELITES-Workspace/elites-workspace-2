@@ -40,3 +40,9 @@ export const triggerConfetti = () => {
 		if (Date.now() < end) requestAnimationFrame(frame);
 	})();
 };
+
+export function formatNumberWithCommaSeparator(num: number): string {
+	return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

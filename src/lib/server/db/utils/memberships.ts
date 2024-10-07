@@ -35,6 +35,10 @@ export async function createMembership(membership: InsertMembership): Promise<vo
 	await db.insert(membershipsTable).values(membership);
 }
 
-export async function updateMembership(id: string, membership: InsertMembership): Promise<void> {
+export async function updateMembership(id: string, membership: Partial<InsertMembership>): Promise<void> {
 	await db.update(membershipsTable).set(membership).where(eq(membershipsTable.id, id));
+}
+
+export async function listMemberships() {
+	return await db.select().from(membershipsTable);
 }

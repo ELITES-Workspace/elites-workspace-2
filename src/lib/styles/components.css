@@ -9,4 +9,9 @@
 	.with-prose {
 		@apply prose prose-sm md:prose-base;
 	}
+
+	/* -- MISC -- */
+	.dropdown-item {
+		@apply flex cursor-pointer select-none items-center gap-2 rounded-md p-1.5 text-sm capitalize outline-none hover:bg-accent;
+	}
 }

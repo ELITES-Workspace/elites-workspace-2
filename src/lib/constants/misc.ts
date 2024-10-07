@@ -1,3 +1,6 @@
+// IMPORTED TYPES
+import type { Option } from '$lib/types';
+
 // -- CONSTANTS -- //
 
 export const VALUE = {
@@ -23,3 +26,13 @@ export const VALUE = {
 	TEXT_NOT_APPLICABLE: 'N/A',
 	TEXT_NONE: 'None',
 };
+
+export const TABLE_LIMIT_OPTIONS: Option[] = [
+	{ label: '10', value: 10 },
+	{ label: '25', value: 25 },
+	{ label: '50', value: 50 },
+	{ label: '100', value: 100 },
+	{ label: '250', value: 250 },
+	{ label: '500', value: 500 },
+	{ label: 'All', value: 0 },
+];

@@ -16,5 +16,6 @@ export { default as LoginDialog } from './dialogs/LoginDialog.svelte';
 
 // -- MISC -- //
 export { default as AccountBenefits } from './misc/AccountBenefits.svelte';
+export { default as AdvancedTable } from './misc/AdvancedTable/AdvancedTable.svelte';
 export { default as FieldsContainer } from './misc/FieldsContainer.svelte';
 export { default as Form } from './misc/Form.svelte';

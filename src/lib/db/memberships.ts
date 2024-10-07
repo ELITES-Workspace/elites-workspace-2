@@ -24,3 +24,23 @@ export async function updateMembership(id: string, membership: InsertMembership)
 
 	if (result.error) throw new Error(result.error.message);
 }
+
+export async function listMemberships() {
+	const { data: result } = await axios.get('/api/db/memberships');
+
+	if (result.error) throw new Error(result.error.message);
+
+	return result.data.memberships;
+}
+
+export async function confirmMembership(id: string) {
+	const { data: result } = await axios.put(`/api/db/memberships/${id}/confirm`);
+
+	if (result.error) throw new Error(result.error.message);
+}
+
+export async function undoMembership(id: string) {
+	const { data: result } = await axios.put(`/api/db/memberships/${id}/undo`);
+
+	if (result.error) throw new Error(result.error.message);
+}
