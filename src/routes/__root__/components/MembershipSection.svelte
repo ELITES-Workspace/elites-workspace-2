@@ -2,7 +2,7 @@
 	// IMPORTED ASSETS
 	import techCompanyBroPNG from '$lib/assets/storysets/tech company-bro.png';
 	// IMPORTED MODULES
-	import { isLoggedIn, openCustomDialog } from '$lib/stores';
+	import { isLoggedIn, isMember, membership, MEMBERSHIP_STATUS, membershipStatus, openCustomDialog } from '$lib/stores';
 	// IMPORTED DEP-COMPONENTS
 	import { Button } from 'svelte-ux';
 	// IMPORTED COMPONENTS
@@ -10,7 +10,7 @@
 </script>
 
 <section class="flex flex-col gap-4">
-	<Heading icon="ph-fill ph-handshake" title="Membership" />
+	<Heading icon="ph-fill ph-handshake" title="Membership" reflectHeadTitle={false} />
 
 	<div class="bg-primary-glass grid grid-cols-1 rounded-md border p-4 shadow-sm xl:grid-cols-3">
 		<div class="flex-center 2xl:p-4">
@@ -31,12 +31,18 @@
 			<Button
 				classes={{ root: 'w-fit' }}
 				variant="fill"
-				color="primary"
+				color={$membership ? ($isMember ? 'success' : 'warning') : 'primary'}
 				size="lg"
-				href={$isLoggedIn ? '/membership/register' : undefined}
+				href={$isLoggedIn ? '/membership' : undefined}
 				on:click={$isLoggedIn ? undefined : () => openCustomDialog('login')}
 			>
-				Register Now
+				{#if $membershipStatus === MEMBERSHIP_STATUS.REGISTERED}
+					Already a Member
+				{:else if $membershipStatus === MEMBERSHIP_STATUS.PENDING}
+					Membership Pending
+				{:else}
+					Register Now
+				{/if}
 			</Button>
 		</div>
 	</div>

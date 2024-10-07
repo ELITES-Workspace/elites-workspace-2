@@ -44,9 +44,11 @@
 	<div class="flex flex-col items-center gap-4 border-b p-4 md:border-b-0 md:border-r md:p-6">
 		<strong class="text-xl">Avatar</strong>
 
-		<Avatar class="bg-primary-glass my-8 h-[200px] w-[200px] flex-grow border p-4">
-			<img src={getAvatar(avatarSeed)} alt="Avatar" />
-		</Avatar>
+		<div class="flex-center flex-grow py-4">
+			<Avatar class="bg-primary-glass max-h-[200px] min-h-[200px] min-w-[200px] max-w-[200px] flex-grow border p-4">
+				<img src={getAvatar(avatarSeed)} alt="Avatar" />
+			</Avatar>
+		</div>
 
 		<div class="grid w-full gap-4 md:grid-cols-2">
 			<!-- RANDOMIZE -->

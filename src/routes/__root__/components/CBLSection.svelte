@@ -6,16 +6,18 @@
 </script>
 
 <section class="flex flex-col gap-4">
-	<Heading icon="ph-fill ph-gavel" title="CBL" />
+	<Heading icon="ph-fill ph-gavel" title="CBL" reflectHeadTitle={false} />
 
-	<div class="flex-center bg-primary-secondary-gradient-glass rounded-md border border-dashed p-4 shadow-sm md:p-6">
+	<div class="flex-center bg-primary-glass rounded-md border border-dashed p-4 shadow-sm md:p-6">
 		<div class="flex-start-center w-fit overflow-hidden rounded-sm border bg-surface-100 shadow-sm">
-			<small class="overflow-hidden text-ellipsis whitespace-nowrap px-4">ELITES - Constitution and By-Laws (2024-2025).pdf</small>
+			<small class="overflow-hidden text-ellipsis whitespace-nowrap px-4">
+				ELITES - Constitution and By-Laws (2024-2025).pdf
+			</small>
 
 			<!-- DOWNLOAD -->
 			<Tooltip title="Download">
 				<a
-					class="flex-center aspect-square min-w-10 max-w-10 border-l bg-zinc-800 text-white hover:bg-zinc-800/80"
+					class="flex-center aspect-square min-w-10 max-w-10 border-l bg-primary text-white hover:bg-primary-700"
 					href="/pdfs/ELITES - Constitution and By-Laws (2024-2025).pdf"
 					download
 				>

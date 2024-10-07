@@ -101,7 +101,7 @@
 	<!-- STUDENT NUMBER -->
 	<TextField
 		label="Student Number"
-		placeholder="Enter Student Number"
+		placeholder="Eg. 2021500059"
 		error={errors.studentNumber}
 		disabled={isLoading}
 		required
@@ -110,11 +110,13 @@
 		<i class="ph-bold ph-identification-card icon-prefix" slot="prefix"></i>
 	</TextField>
 
+	<small class="-mt-3 opacity-75">Non-BulSUans: start with '00' followed by a random 8 digits.</small>
+
 	<!-- PASSWORD -->
 	<TextField
 		type="password"
 		label="Password"
-		placeholder="Enter Password"
+		placeholder="Eg. Meow_123"
 		error={errors.password}
 		disabled={isLoading}
 		required
@@ -127,7 +129,7 @@
 	<TextField
 		type="password"
 		label="Repeat Password"
-		placeholder="Enter Password Again"
+		placeholder="Eg. Meow_123"
 		error={errors.repassword}
 		disabled={isLoading}
 		required

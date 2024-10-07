@@ -1,15 +1,16 @@
 <script lang="ts">
 	// IMPORTED ASSETS
-	import thinkingFaceBroPNG from '$lib/assets/storysets/Thinking face-bro.png';
 	import choiceBroPNG from '$lib/assets/storysets/Choice-bro.png';
+	import thinkingFaceBroPNG from '$lib/assets/storysets/Thinking face-bro.png';
 	// IMPORTED DEP-MODULES
+	import { onMount } from 'svelte';
 	import Swiper from 'swiper';
 	import { Pagination } from 'swiper/modules';
-	import { onMount } from 'svelte';
 	// IMPORTED MODULES
-	import { isSMDown, isMD, isMDDown, isLG } from '$lib/stores';
+	import { isLG, isLGUp, isLoggedIn, isMD, isMember, isSMDown, openCustomDialog } from '$lib/stores';
+	import { cn } from '$lib/utils';
 	// IMPORTED DEP-COMPONENTS
-	import { Tooltip, Gooey } from 'svelte-ux';
+	import { Tooltip } from 'svelte-ux';
 	// IMPORTED COMPONENTS
 	import { Heading } from '$lib/components';
 	// IMPORTED STYLES
@@ -21,43 +22,54 @@
 
 	let slideHeight = 0;
 
-	let items = [
-		{
-			name: 'ELITES Shirt',
-			note: 'for Members',
-			seller: 'ELITES Organization',
-			thumbnail: '/images/merch/TNEBLACKmember.png',
-			logo: '/images/logos/elites-logo.png',
-			price: '450.00',
-			sold: 0,
-		},
-		{
-			name: 'ELITES Lanyard',
-			note: 'for Members',
-			seller: 'ELITES Organization',
-			thumbnail: '/images/merch/LANYARDmember.png',
-			logo: '/images/logos/elites-logo.png',
-			price: '120.00',
-			sold: 0,
-		},
-		{
-			name: 'ELITES Shirt',
-			note: 'for Non-members',
-			seller: 'ELITES Organization',
-			thumbnail: '/images/merch/TNEBLACKnonmember.png',
-			logo: '/images/logos/elites-logo.png',
-			price: '520.00',
-			sold: 0,
-		},
-		{
-			name: 'ELITES Lanyard',
-			note: 'for Non-members',
-			seller: 'ELITES Organization',
-			thumbnail: '/images/merch/LANYARDnonmember.png',
-			logo: '/images/logos/elites-logo.png',
-			price: '150.00',
-			sold: 0,
-		},
+	$: items = [
+		...($isMember
+			? [
+					{
+						name: 'ELITES Shirt',
+						note: 'for Members',
+						seller: 'ELITES Organization',
+						thumbnail: '/images/merch/TNEBLACKmember.png',
+						logo: '/images/logos/elites-logo.png',
+						price: '450.00',
+						sold: 0,
+						isPreview: true,
+					},
+					{
+						name: 'ELITES Lanyard',
+						note: 'for Members',
+						seller: 'ELITES Organization',
+						thumbnail: '/images/merch/LANYARDmember.png',
+						logo: '/images/logos/elites-logo.png',
+						price: '120.00',
+						sold: 0,
+						isPreview: true,
+					},
+					...Array($isLG ? 1 : $isLGUp ? 2 : 0).fill(null),
+				]
+			: [
+					{
+						name: 'ELITES Shirt',
+						note: 'for Non-members',
+						seller: 'ELITES Organization',
+						thumbnail: '/images/merch/TNEBLACKnonmember.png',
+						logo: '/images/logos/elites-logo.png',
+						price: '520.00',
+						sold: 0,
+						isPreview: true,
+					},
+					{
+						name: 'ELITES Lanyard',
+						note: 'for Non-members',
+						seller: 'ELITES Organization',
+						thumbnail: '/images/merch/LANYARDnonmember.png',
+						logo: '/images/logos/elites-logo.png',
+						price: '150.00',
+						sold: 0,
+						isPreview: true,
+					},
+					...Array($isLG ? 1 : $isLGUp ? 2 : 0).fill(null),
+				]),
 	];
 
 	// -- REACTIVE STATES -- //
@@ -91,7 +103,7 @@
 </script>
 
 <section class="flex flex-col gap-4">
-	<Heading icon="ph-fill ph-shopping-cart" title="Merchandise" />
+	<Heading icon="ph-fill ph-shopping-cart" title="Merchandise" reflectHeadTitle={false} />
 
 	<div class="relative">
 		<div id="swiper-merchandise" class="swiper">
@@ -100,26 +112,27 @@
 				{#each items as item, i (i)}
 					{#if item}
 						<a
-							class="swiper-slide flex flex-col overflow-hidden rounded-md border bg-surface-100 shadow-sm hover:bg-accent"
-							href="/"
+							class={cn(
+								'swiper-slide relative flex flex-col overflow-hidden rounded-md border bg-surface-100 shadow-sm',
+								!item.isPreview && 'hover:bg-accent',
+							)}
+							href={!$isLoggedIn || item.isPreview ? undefined : '/merchandise'}
+							on:click={$isLoggedIn ? undefined : () => openCustomDialog('login')}
 							bind:clientHeight={slideHeight}
 						>
+							<!-- PREVIEW -->
+							{#if item.isPreview}
+								<div class="flex-center absolute inset-0 z-10 bg-black/50">
+									<small class="font-['Ultimate_Gear'] text-sm text-white">Coming Soon!</small>
+								</div>
+							{/if}
+
 							<!-- IMAGE -->
 							<div
-								class="group relative aspect-square w-full border-b bg-gray-50 bg-cover bg-center dark:bg-gray-950"
+								class="group relative aspect-square w-full border-b bg-slate-50 bg-cover bg-center dark:bg-slate-950"
 								style="background-image: url('{item.thumbnail}')"
-							>
-								<div
-									class="absolute left-0 top-0 h-[50%] w-full bg-gradient-to-b from-primary to-transparent opacity-35 transition-opacity group-hover:opacity-0"
-								/>
-								<div class="absolute left-0 top-0 z-10 p-2 transition-opacity group-hover:opacity-0">
-									<img
-										class="mr-1 inline aspect-square h-fit w-[15%] rounded-full"
-										src={item.logo}
-										alt={item.name}
-									/>
-								</div>
-							</div>
+							/>
+
 							<!-- DETAILS -->
 							<div class="flex flex-col gap-2 p-3">
 								<span class="flex-start-center gap-2">
@@ -133,15 +146,15 @@
 								</div>
 							</div>
 						</a>
-					{:else if !$isMDDown}
+					{:else}
 						<div
-							class="swiper-slide relative flex items-stretch rounded-md border bg-surface-100 bg-contain bg-center bg-no-repeat p-4 opacity-75 shadow-sm grayscale"
+							class="swiper-slide relative flex items-stretch rounded-md border bg-surface-100 bg-contain bg-center bg-no-repeat p-4 opacity-50 shadow-sm grayscale"
 							style="
                                 min-height: {slideHeight}px;
                                 background-image: url('{i === 2 ? thinkingFaceBroPNG : choiceBroPNG}');
                             "
 						>
-							<Tooltip title="Coming soon..." autoPlacement>
+							<Tooltip title="Coming soon!" autoPlacement>
 								<div class="absolute inset-0 cursor-help"></div>
 							</Tooltip>
 						</div>

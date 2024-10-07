@@ -1,20 +1,35 @@
 <script lang="ts">
 	// IMPORTED MODULES
-	import { user } from '$lib/stores';
-	import { formatDateTimeDisplay } from '$lib/utils';
+	import { membership, membershipStatus, user } from '$lib/stores';
+	import { formatDateTimeDisplay, formatFullName } from '$lib/utils';
 	// IMPORTED DEP-COMPONENTS
-	import { TextField, Button } from 'svelte-ux';
+	import { Button, TextField } from 'svelte-ux';
 </script>
 
 {#if $user}
 	<div class="flex flex-col items-stretch gap-4 p-4 md:p-6">
 		<strong class="text-center text-xl">Account Info</strong>
 
+		{#if $membership}
+			<!-- FULL NAME -->
+			<TextField label="Full Name" value={formatFullName($membership)} disabled />
+		{/if}
+
 		<!-- STUDENT NUMBER -->
 		<TextField label="Sudent Number" value={$user.studentNumber} disabled />
 
 		<!-- MEMBERSHIP STATUS -->
-		<TextField label="Membership Status" value="Not Registered" disabled />
+		<TextField label="Membership Status" value={$membershipStatus} disabled />
+
+		{#if $membership}
+			{#if $membership.isConfirmed && $membership.confirmedAt}
+				<!-- MEMBERSHIP CONFIRMED AT -->
+				<TextField label="Membership Confirmed At" value={formatDateTimeDisplay($membership.confirmedAt)} disabled />
+			{:else}
+				<!-- MEMBERSHIP CREATION -->
+				<TextField label="Membership Creation" value={formatDateTimeDisplay($membership.createdAt)} disabled />
+			{/if}
+		{/if}
 
 		<!-- ACCOUNT CREATION -->
 		<TextField label="Account Creation" value={formatDateTimeDisplay($user.createdAt)} disabled />

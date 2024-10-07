@@ -8,7 +8,7 @@ export const GET: RequestHandler = async ({ locals, cookies }) => {
 	let error = null;
 
 	try {
-		data = { user: await locals.auth.refresh(cookies) };
+		data = await locals.auth.refresh(cookies);
 	} catch (e: any) {
 		error = { message: e.message };
 	}

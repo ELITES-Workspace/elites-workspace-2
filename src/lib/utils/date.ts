@@ -1,3 +1,5 @@
+// -- FUNCTIONS -- //
+
 export function formatTimeDisplay(date: Date | string): string {
 	if (typeof date === 'string') date = new Date(date);
 

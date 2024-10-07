@@ -1,6 +1,5 @@
 // IMPORTED TYPES
-import type { usersTable } from '$lib/server/db';
-import type { User } from '$lib/types';
+import type { InsertUser, Membership, User } from '$lib/types';
 // IMPORTED DEP-MODULES
 import { goto } from '$app/navigation';
 import axios from 'axios';
@@ -9,9 +8,24 @@ import { writable } from 'svelte/store';
 // IMPORTED MODULES
 import { createConfirmationDialog } from './dialog';
 
+// -- TYPES -- //
+
+export type MembershipStatus = 'Not Registered' | 'Registered' | 'Pending';
+
+// -- ENUMS -- //
+
+export const MEMBERSHIP_STATUS = {
+	NOT_REGISTERED: 'Not Registered',
+	REGISTERED: 'Registered',
+	PENDING: 'Pending',
+};
+
 // -- STORES -- //
 
 export const user = writable<User | undefined>();
+export const membership = writable<Membership | undefined>();
+export const membershipStatus = writable<MembershipStatus>();
+export const isMember = writable<boolean>(false);
 export const isLoggedIn = writable<boolean>(false);
 
 // -- FUNCTIONS -- //
@@ -40,7 +54,7 @@ export async function login(studentNumber: string, password: string) {
 	user.set(result.data.user);
 }
 
-export async function register(user: typeof usersTable.$inferInsert) {
+export async function register(user: InsertUser) {
 	console.log({ user });
 
 	const { data: result } = await axios.post('/api/auth/register', user);
@@ -81,4 +95,16 @@ export async function updateAvatarSeed(avatarSeed: string) {
 
 // -- SUBSCRIPTIONS -- //
 
-user.subscribe((value) => isLoggedIn.set(!!value));
+user.subscribe((value) => {
+	let current = value?.memberships?.[0];
+	let status = '';
+
+	if (!current) status = MEMBERSHIP_STATUS.NOT_REGISTERED;
+	else if (current.isConfirmed) status = MEMBERSHIP_STATUS.REGISTERED;
+	else status = MEMBERSHIP_STATUS.PENDING;
+
+	isLoggedIn.set(!!value);
+	isMember.set(!!value?.memberships?.length && value?.memberships?.[0].isConfirmed);
+	membership.set(value?.memberships?.[0]);
+	membershipStatus.set(status as MembershipStatus);
+});

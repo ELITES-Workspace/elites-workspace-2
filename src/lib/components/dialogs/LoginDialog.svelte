@@ -77,7 +77,7 @@
 	<!-- STUDENT NUMBER -->
 	<TextField
 		label="Student Number"
-		placeholder="Enter Student Number"
+		placeholder="Eg. 2021500059"
 		error={errors.studentNumber}
 		disabled={isLoading}
 		required
@@ -90,7 +90,7 @@
 	<TextField
 		type="password"
 		label="Password"
-		placeholder="Enter Password"
+		placeholder="Eg. Meow_123"
 		error={errors.password}
 		disabled={isLoading}
 		required

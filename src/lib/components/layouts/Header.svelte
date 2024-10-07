@@ -87,7 +87,7 @@
 					</DropdownMenu.Trigger>
 
 					<!-- CONTENT -->
-					<DropdownMenu.Content>
+					<DropdownMenu.Content class="w-full max-w-[200px]">
 						<DropdownMenu.Group>
 							<div class="bg-primary-glass flex flex-col items-center gap-2 rounded-sm p-2 pt-3">
 								<Avatar class="bg-primary-glass border p-[2px]">
@@ -103,12 +103,6 @@
 							<DropdownMenu.Item href="/profile">
 								<i class="ph-bold ph-user"></i>
 								Profile
-							</DropdownMenu.Item>
-
-							<!-- MEMBERSHIP STATUS -->
-							<DropdownMenu.Item href="/membership/status">
-								<i class="ph-bold ph-seal-question"></i>
-								Membership Status
 							</DropdownMenu.Item>
 
 							<!-- LOGOUT -->

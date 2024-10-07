@@ -1,0 +1,1 @@
+ALTER TABLE "memberships" ADD COLUMN "is_agreement_confirmed" boolean DEFAULT false NOT NULL;

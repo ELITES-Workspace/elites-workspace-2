@@ -3,3 +3,4 @@ export * from './avatar';
 export * from './date';
 export * from './misc';
 export * from './shadcn';
+export * from './technical';
