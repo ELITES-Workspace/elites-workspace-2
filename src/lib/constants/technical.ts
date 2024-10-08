@@ -20,6 +20,7 @@ export const SECTION_OPTIONS: Option[] = [
 	{ label: 'B', value: 'B' },
 	{ label: 'C', value: 'C' },
 	{ label: 'D', value: 'D' },
+	{ label: 'E', value: 'E' },
 ];
 
 export const PROGRAM_OPTIONS: Option[] = [
